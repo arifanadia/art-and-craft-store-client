@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/NATURE_s_TOUCH_logo.png"
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
     const [theme, setTheme] = useState('light')
 
@@ -13,8 +15,11 @@ const Header = () => {
     }
     const navLinks =
         <>
-            <li><a>Item 1</a></li>
-            <li><a>Item 3</a></li>
+           <NavLink to={'/'}><li><a>Home</a></li></NavLink>
+           <NavLink to={'/all-items'}><li><a>All art & craft items</a></li></NavLink>
+           <NavLink to={'/add-item'}><li><a>Add Craft item</a></li></NavLink>
+           <NavLink to={'/my-list'}><li><a>My art&craft List</a></li></NavLink>
+            
         </>
 
 
