@@ -1,30 +1,30 @@
 import { useEffect, useState } from "react";
 import logo from "../../images/NATURE_s_TOUCH_logo.png"
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
     const [theme, setTheme] = useState('light')
 
     useEffect(() => {
-        localStorage.setItem('theme',theme);
-        document.querySelector('html').setAttribute('data-theme',theme)
+        localStorage.setItem('theme', theme);
+        document.querySelector('html').setAttribute('data-theme', theme)
     }, [theme])
     const handleToggle = e => {
-       const newTheme = e.target.checked ? 'synthwave' : 'light'
-       setTheme(newTheme)
+        const newTheme = e.target.checked ? 'synthwave' : 'light'
+        setTheme(newTheme)
     }
     const navLinks =
         <>
-           <NavLink to={'/'}><li>Home</li></NavLink>
-           <NavLink to={'/all-items'}><li >All items</li></NavLink>
-           <NavLink to={'/add-item'}><li>Add items</li></NavLink>
-           <NavLink to={'/my-list'}><li>My List</li></NavLink>
-            
+            <NavLink to={'/'}><li>Home</li></NavLink>
+            <NavLink to={'/all-items'}><li >All items</li></NavLink>
+            <NavLink to={'/add-item'}><li>Add items</li></NavLink>
+            <NavLink to={'/my-list'}><li>My List</li></NavLink>
+
         </>
 
 
     return (
-        <div className="flex justify-between  bg-[#D2B48C] text-white items-center px-6 ">
+        <div className="flex justify-between bg-[#D2B48C] text-white items-center px-6 ">
             <div className="w-1/3">
                 <div className=" hidden lg:flex">
                     <ul className="gap-8 flex px-1 text-white z-10 font-workSans font-bold ">
@@ -49,7 +49,7 @@ const Header = () => {
                 <img className="w-[150px] mx-auto" src={logo} alt="" />
             </div>
 
-            <div className="flex justify-end w-1/3 z-10">
+            <div className="flex items-center justify-end w-1/3 z-10">
                 <label className="swap swap-rotate">
 
                     {/* this hidden checkbox controls the state */}
@@ -81,7 +81,12 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="dropdown dropdown-end">
+
+
+
+                </div>
+                {/* <div className="dropdown dropdown-end">
+                        
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -97,9 +102,8 @@ const Header = () => {
                             <li><a>Settings</a></li>
                             <li><a>Logout</a></li>
                         </ul>
-                    </div>
-
-                </div>
+                    </div> */}
+                <Link to={'/login'}><button className="border px-4 py-2 font-semibold text-center">Sign In</button></Link>
 
             </div>
 
