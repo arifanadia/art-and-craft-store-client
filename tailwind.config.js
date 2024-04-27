@@ -13,7 +13,8 @@ module.exports = withMT({
         mainColor: '#bc6c25',
       },
       fontFamily: {
-       workSans :'Work Sans", sans-serif'
+       workSans :'Work Sans", sans-serif',
+       poppins :  'Poppins, sans-serif'
       }
     },
   },

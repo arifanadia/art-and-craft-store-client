@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Error from "../Pages/Error/Error";
 
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
                 path:'/',
                 element:<Home></Home>
 
-            }
+            },
+        
 
 
         ]

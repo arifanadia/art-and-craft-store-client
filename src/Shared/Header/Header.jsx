@@ -15,19 +15,19 @@ const Header = () => {
     }
     const navLinks =
         <>
-           <NavLink to={'/'}><li><a>Home</a></li></NavLink>
-           <NavLink to={'/all-items'}><li><a>All art & craft items</a></li></NavLink>
-           <NavLink to={'/add-item'}><li><a>Add Craft item</a></li></NavLink>
-           <NavLink to={'/my-list'}><li><a>My art&craft List</a></li></NavLink>
+           <NavLink to={'/'}><li>Home</li></NavLink>
+           <NavLink to={'/all-items'}><li >All items</li></NavLink>
+           <NavLink to={'/add-item'}><li>Add items</li></NavLink>
+           <NavLink to={'/my-list'}><li>My List</li></NavLink>
             
         </>
 
 
     return (
-        <div className="flex justify-between items-center bg-base-100">
+        <div className="flex justify-between bg-mainColor text-white bg-opacity-30 items-center px-6 ">
             <div className="w-1/3">
-                <div className="navbar-start hidden lg:flex ">
-                    <ul className="flex gap-8 px-1">
+                <div className=" hidden lg:flex">
+                    <ul className="gap-8 flex px-1 text-white z-10 font-workSans font-bold ">
                         {navLinks}
                     </ul>
                 </div>
@@ -45,11 +45,11 @@ const Header = () => {
 
                 </div>
             </div>
-            <div className=" w-1/3">
+            <div className=" w-1/3 z-10">
                 <img className="w-[150px] mx-auto" src={logo} alt="" />
             </div>
 
-            <div className="flex justify-end w-1/3">
+            <div className="flex justify-end w-1/3 z-10">
                 <label className="swap swap-rotate">
 
                     {/* this hidden checkbox controls the state */}
