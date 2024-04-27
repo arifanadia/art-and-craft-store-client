@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../../assets/NATURE_s_TOUCH_logo.png"
+import logo from "../../images/NATURE_s_TOUCH_logo.png"
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
 
 
     return (
-        <div className="flex justify-between bg-mainColor text-white bg-opacity-30 items-center px-6 ">
+        <div className="flex justify-between  bg-[#D2B48C] text-white items-center px-6 ">
             <div className="w-1/3">
                 <div className=" hidden lg:flex">
                     <ul className="gap-8 flex px-1 text-white z-10 font-workSans font-bold ">
