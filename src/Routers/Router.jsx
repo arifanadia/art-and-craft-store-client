@@ -3,6 +3,7 @@ import Root from "../layout/Root/Root";
 import Home from "../Pages/Home/Home";
 import Error from "../Pages/Error/Error";
 import AddCraftitem from "../Pages/AddCraftitem/AddCraftitem";
+import AllCraftItems from "../Pages/AllCraftItems/AllCraftItems";
 
 
 
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
             {
                 path:'/add-item',
                 element: <AddCraftitem></AddCraftitem>
+
+            },
+            {
+                path:'/all-craft-items',
+                element: <AllCraftItems></AllCraftItems>
 
             },
         

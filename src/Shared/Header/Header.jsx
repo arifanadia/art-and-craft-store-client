@@ -16,7 +16,7 @@ const Header = () => {
     const navLinks =
         <>
             <NavLink to={'/'}><li>Home</li></NavLink>
-            <NavLink to={'/all-items'}><li >All items</li></NavLink>
+            <NavLink to={'/all-craft-items'}><li >All Craft items</li></NavLink>
             <NavLink to={'/add-item'}><li>Add items</li></NavLink>
             <NavLink to={'/my-list'}><li>My List</li></NavLink>
 
