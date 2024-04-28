@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import Error from "../Pages/Error/Error";
 import AddCraftitem from "../Pages/AddCraftitem/AddCraftitem";
 import AllCraftItems from "../Pages/AllCraftItems/AllCraftItems";
+import SignIn from "../Pages/SignIn/SignIn";
+import SignUp from "../Pages/SignUp/SignUp";
 
 
 
@@ -23,6 +25,17 @@ const router = createBrowserRouter([
                 element: <AddCraftitem></AddCraftitem>
 
             },
+            {
+                path:'/signUp',
+                element: <SignUp></SignUp>
+
+            },
+            {
+                path:'/signIN',
+                element: <SignIn></SignIn>
+
+            },
+        
             {
                 path:'/all-craft-items',
                 element: <AllCraftItems></AllCraftItems>

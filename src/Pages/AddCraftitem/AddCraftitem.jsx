@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import addImage from '../../images/add.jpg'
+import addImage from '../../assets/images/add.jpg'
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -172,6 +172,7 @@ const AddCraftitem = () => {
 
             </div>
         </div>
+
     );
 };
 

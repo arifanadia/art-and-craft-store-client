@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../../images/NATURE_s_TOUCH_logo.png"
+import logo from "../../assets/images/NATURE_s_TOUCH_logo.png"
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -49,7 +49,7 @@ const Header = () => {
                 <img className="w-[150px] mx-auto" src={logo} alt="" />
             </div>
 
-            <div className="flex items-center justify-end w-1/3 z-10">
+            <div className="flex gap-4 items-center justify-end w-1/3 z-10">
                 <label className="swap swap-rotate">
 
                     {/* this hidden checkbox controls the state */}
@@ -103,7 +103,8 @@ const Header = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div> */}
-                <Link to={'/login'}><button className="border px-4 py-2 font-semibold text-center">Sign In</button></Link>
+                <Link to={'/signUp'}><button className="border px-4 py-2 font-semibold text-center">Sign Up</button></Link>
+                <Link to={'/signIn'}><button className="border px-4 py-2 font-semibold text-center">Sign In</button></Link>
 
             </div>
 

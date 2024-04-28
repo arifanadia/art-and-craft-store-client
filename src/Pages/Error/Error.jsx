@@ -1,8 +1,9 @@
 import { useRouteError } from "react-router-dom";
-import errorImg from '../../images/error.png'
+import errorImg from '../../assets/images/error.png'
 
 
 const Error = () => {
+
     const error = useRouteError()
     return (
         <div className="max-w-7xl mx-auto my-28">

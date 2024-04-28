@@ -1,8 +1,5 @@
+
 import PropTypes from 'prop-types';
-
-
-
-
 import {
     Card,
     CardHeader,
@@ -13,13 +10,16 @@ import {
     IconButton,
 } from "@material-tailwind/react";
 
-const Item = ({ item }) => {
-    const { image, itemName,
-        subCategory, description,
-        priceType, price,
-        customize, stock,
-        processTime, email,
-        name, rating } = item || {}
+const AllItem = ({allItem}) => {
+
+        const {
+            image, itemName,
+            subCategory, description,
+            priceType, price,
+            customize, stock,
+            processTime, email,
+            name, rating
+    } = allItem || {}
     return (
         <Card className="w-[500px] md:w-full mx-auto shadow-lg">
             <CardHeader floated={false} color="blue-gray">
@@ -87,10 +87,11 @@ const Item = ({ item }) => {
             </CardFooter>
         </Card>
     );
+
 };
 
-Item.propTypes = {
-    item : PropTypes.object.isRequired
+AllItem.propTypes = {
+    allItem : PropTypes.object.isRequired
 };
 
-export default Item;
+export default AllItem;
