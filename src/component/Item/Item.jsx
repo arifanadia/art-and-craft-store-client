@@ -12,14 +12,12 @@ import {
     Button,
     IconButton,
 } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
-    const { image, itemName,
-        subCategory, description,
-        priceType, price,
-        customize, stock,
-        processTime, email,
-        name, rating } = item || {}
+    const { _id, image, itemName,
+        priceType, price, stock,subCategory,
+        rating } = item || {}
     return (
         <Card className="w-[500px] md:w-full mx-auto shadow-lg">
             <CardHeader floated={false} color="blue-gray">
@@ -68,9 +66,12 @@ const Item = ({ item }) => {
                         {rating}
                     </Typography>
                 </div>
+                <Typography color="gray">
+                    category : {subCategory}
+                </Typography>
                 <div className="flex gap-6">
                     <Typography color="gray">
-                        Price : {price}  ( {priceType} )
+                        Price : ${price}  ( {priceType} )
                     </Typography>
                     <Typography color="gray">
 
@@ -81,16 +82,18 @@ const Item = ({ item }) => {
                 </Typography>
             </CardBody>
             <CardFooter className="pt-3 ">
-                <Button className="bg-[#D2B48C]" size="lg" fullWidth={true}>
-                    View Details
-                </Button>
+                <Link to={`/craftItems/${_id}`}>
+                    <Button className="bg-[#D2B48C]" size="lg" fullWidth={true}>
+                        View Details
+                    </Button>
+                </Link>
             </CardFooter>
         </Card>
     );
 };
 
 Item.propTypes = {
-    item : PropTypes.object.isRequired
+    item: PropTypes.object.isRequired
 };
 
 export default Item;

@@ -9,16 +9,16 @@ import {
     Button,
     IconButton,
 } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
-const AllItem = ({allItem}) => {
+const AllItem = ({ allItem }) => {
 
-        const {
-            image, itemName,
-            subCategory, description,
-            priceType, price,
-            customize, stock,
-            processTime, email,
-            name, rating
+    const {
+        _id,
+        image, itemName,
+        subCategory,
+        priceType, price, stock,
+        rating
     } = allItem || {}
     return (
         <Card className="w-[500px] md:w-full mx-auto shadow-lg">
@@ -68,9 +68,12 @@ const AllItem = ({allItem}) => {
                         {rating}
                     </Typography>
                 </div>
+                <Typography color="gray">
+                    category : {subCategory}
+                </Typography>
                 <div className="flex gap-6">
                     <Typography color="gray">
-                        Price : {price}  ( {priceType} )
+                        Price : ${price}  ( {priceType} )
                     </Typography>
                     <Typography color="gray">
 
@@ -81,9 +84,11 @@ const AllItem = ({allItem}) => {
                 </Typography>
             </CardBody>
             <CardFooter className="pt-3 ">
-                <Button className="bg-[#D2B48C]" size="lg" fullWidth={true}>
-                    View Details
-                </Button>
+                <Link to={`/craftItems/${_id}`}>
+                    <Button className="bg-[#D2B48C]" size="lg" fullWidth={true}>
+                        View Details
+                    </Button>
+                </Link>
             </CardFooter>
         </Card>
     );
@@ -91,7 +96,7 @@ const AllItem = ({allItem}) => {
 };
 
 AllItem.propTypes = {
-    allItem : PropTypes.object.isRequired
+    allItem: PropTypes.object.isRequired
 };
 
 export default AllItem;

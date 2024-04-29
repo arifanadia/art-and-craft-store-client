@@ -1,9 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "../../assets/images/NATURE_s_TOUCH_logo.png"
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
-    const [theme, setTheme] = useState('light')
+    const [theme, setTheme] = useState('light');
+    const { user,signOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        signOut()
+        .then()
+        .catch()
+    }
 
     useEffect(() => {
         localStorage.setItem('theme', theme);
@@ -24,7 +32,7 @@ const Header = () => {
 
 
     return (
-        <div className="flex justify-between bg-[#D2B48C] text-white items-center px-6 ">
+        <div className="flex justify-between bg-[#D2B48C]  items-center px-6 ">
             <div className="w-1/3">
                 <div className=" hidden lg:flex">
                     <ul className="gap-8 flex px-1 text-white z-10 font-workSans font-bold ">
@@ -49,8 +57,8 @@ const Header = () => {
                 <img className="w-[150px] mx-auto" src={logo} alt="" />
             </div>
 
-            <div className="flex gap-4 items-center justify-end w-1/3 z-10">
-                <label className="swap swap-rotate">
+            <div className="flex  gap-4 items-center justify-end w-1/3 z-10">
+                <label className="swap swap-rotate text-white">
 
                     {/* this hidden checkbox controls the state */}
                     <input onChange={handleToggle}
@@ -63,7 +71,7 @@ const Header = () => {
                     <svg className="swap-on fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
 
                 </label>
-                <div className="flex-none">
+                <div className="flex-none text-white">
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                             <div className="indicator">
@@ -81,30 +89,31 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-                {/* <div className="dropdown dropdown-end">
-                        
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
-                    </div> */}
-                <Link to={'/signUp'}><button className="border px-4 py-2 font-semibold text-center">Sign Up</button></Link>
-                <Link to={'/signIn'}><button className="border px-4 py-2 font-semibold text-center">Sign In</button></Link>
+                <Link to={'/signUp'}><button className=" text-white border px-4 py-2 font-semibold text-center">Sign Up</button></Link>
+              {
+                user ?   <div className="dropdown dropdown-end">
+
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full bg-white">
+                        <img alt="Tailwind CSS Navbar component" src={user?.photoURL ||"https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                    </div>
+                </div>
+                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li>
+                        <a className="justify-between">
+                            Profile
+                            <span className="badge">New</span>
+                        </a>
+                    </li>
+                    <li><a>Settings</a></li>
+                    <li onClick={handleSignOut}><a>Logout</a></li>
+                </ul>
+            </div>
+            :
+
+            <Link to={'/signIn'}><button className="text-white border px-4 py-2 font-semibold text-center">Sign In</button></Link>
+              }
 
             </div>
 

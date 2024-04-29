@@ -6,6 +6,7 @@ import AddCraftitem from "../Pages/AddCraftitem/AddCraftitem";
 import AllCraftItems from "../Pages/AllCraftItems/AllCraftItems";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 
 
@@ -39,6 +40,12 @@ const router = createBrowserRouter([
             {
                 path:'/all-craft-items',
                 element: <AllCraftItems></AllCraftItems>
+
+            },
+        
+            {
+                path:'/craftItems/:id',
+                element: <ViewDetails></ViewDetails>
 
             },
         

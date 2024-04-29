@@ -80,7 +80,7 @@ const AddCraftitem = () => {
                             <span className="label-text">Short Description</span>
                         </label>
                         <textarea className="textarea"
-                            placeholder="Write something" name="description"></textarea>
+                            placeholder="Write something..." name="description"></textarea>
 
                     </div>
                     <div className="md:flex justify-center gap-6">
