@@ -55,7 +55,7 @@ const SignIn = () => {
                         <input type="email" placeholder="Your Email" name="email"
                             className="input input-bordered w-full" required />
                     </div>
-                    <div className="form-control ">
+                    <div className="form-control relative ">
                         <label className="label">
                             <span className="label-text">password</span>
                         </label>

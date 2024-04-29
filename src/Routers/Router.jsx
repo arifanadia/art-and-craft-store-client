@@ -7,6 +7,7 @@ import AllCraftItems from "../Pages/AllCraftItems/AllCraftItems";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import MyList from "../Pages/MyList/MyList";
 
 
 
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
             {
                 path:'/craftItems/:id',
                 element: <ViewDetails></ViewDetails>
+
+            },
+            {
+                path:'/myList',
+                element: <MyList></MyList>
 
             },
         

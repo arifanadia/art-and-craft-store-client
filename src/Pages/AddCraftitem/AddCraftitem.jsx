@@ -3,10 +3,12 @@ import addImage from '../../assets/images/add.jpg'
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddCraftitem = () => {
 
-
+    const { user } = useContext(AuthContext)
 
     const handleAddItem = event => {
         event.preventDefault();
@@ -57,7 +59,7 @@ const AddCraftitem = () => {
                         <label className="label">
                             <span className="label-text">Image</span>
                         </label>
-                        <input type="text" placeholder="Image URL" name="image"
+                        <input type="url" placeholder="Image URL" name="image"
                             className="input input-bordered w-full" required />
                     </div>
                     <div className="md:flex justify-center gap-6">
@@ -143,13 +145,13 @@ const AddCraftitem = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="Your Email" name="email" className="input input-bordered" required />
+                            <input type="email" defaultValue={user?.email || "Email"} placeholder="Your Email" name="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="Your Name" name="name"
+                            <input type="text" defaultValue={user?.name || "Name"} placeholder="Your Name" name="name"
                                 className="input input-bordered w-full" required />
                         </div>
                     </div>
