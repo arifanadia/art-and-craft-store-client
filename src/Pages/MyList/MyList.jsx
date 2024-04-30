@@ -16,7 +16,7 @@ const MyList = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myList/${user?.email}`)
+        axios.get(`https://art-and-craft-store.vercel.app/myList/${user?.email}`)
             .then(data => {
                 console.log(data.data);
                 setItem(data.data)
@@ -35,7 +35,7 @@ const MyList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/delete/${id}`, {
+                fetch(`https://art-and-craft-store.vercel.app/delete/${id}`, {
                     method: 'DELETE'
 
                 })

@@ -11,7 +11,7 @@ const UpdateItem = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/craftItems/${id}`)
+        axios.get(`https://art-and-craft-store.vercel.app/craftItems/${id}`)
         .then(data => {
             setItems(data.data)
         })
@@ -33,7 +33,7 @@ const UpdateItem = () => {
         const rating = form.rating.value;
         const updateItem = { image, itemName, subCategory, description, priceType, price, customize, stock, processTime, rating }
         // console.log(updateItem);
-        fetch(`http://localhost:5000/updateItem/${id}`, {
+        fetch(`https://art-and-craft-store.vercel.app/updateItem/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

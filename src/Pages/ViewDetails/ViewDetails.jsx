@@ -12,7 +12,7 @@ const ViewDetails = () => {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        axios(`http://localhost:5000/craftItems/${id}`)
+        axios(`https://art-and-craft-store.vercel.app/craftItems/${id}`)
             .then(data => {
                 console.log(data.data);
                 setItem(data.data)

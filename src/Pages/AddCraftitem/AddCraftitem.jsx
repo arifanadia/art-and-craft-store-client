@@ -29,7 +29,7 @@ const AddCraftitem = () => {
         const newCraftItem = { image, itemName, subCategory, description, priceType, price, customize, stock, processTime, email, name, rating }
         console.log(newCraftItem);
 
-        axios.post('http://localhost:5000/craftItems', newCraftItem)
+        axios.post('https://art-and-craft-store.vercel.app/craftItems', newCraftItem)
             .then(data => {
                 form.reset()
                 if (data.data.insertedId) {

@@ -12,7 +12,7 @@ const [categoryCard, setCategoryCard] = useState({})
 
     useEffect(() => {
 
-        axios.get('http://localhost:5000/categories')
+        axios.get('https://art-and-craft-store.vercel.app/categories')
             .then(data => {
         
                 const item = data.data.find(i => i._id == id);

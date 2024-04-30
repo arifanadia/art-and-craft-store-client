@@ -9,7 +9,7 @@ const CraftItem = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/craftItems')
+        axios.get('https://art-and-craft-store.vercel.app/craftItems')
             .then(data => {
                 setItems(data.data);
             })
