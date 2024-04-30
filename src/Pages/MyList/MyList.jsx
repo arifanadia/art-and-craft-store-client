@@ -4,6 +4,8 @@ import axios from "axios";
 import { MdOutlineStar } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyList = () => {
 
@@ -18,17 +20,29 @@ const MyList = () => {
             })
     }, [user])
 
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/delete/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'craft item updated successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+
+                }
+            })
+    }
+
     console.log(item);
 
-    // const {
-    //     _id,
-    //     image, itemName,
-    //     subCategory, description,
-    //     priceType, price,
-    //     customize, stock,
-    //     processTime, email,
-    //     name, rating
-    // } = item || {}
     return (
         <div className="lg:grid lg:grid-cols-3 gap-6 my-12 max-w-7xl mx-auto">
             <div className="col-span-2 space-y-6">
@@ -61,10 +75,12 @@ const MyList = () => {
                                         </div>
 
                                         <div className="flex gap-6">
-                                            <button
-                                                className=" text-white btn mt-6  text-lg bg-mainColor ">Update <MdOutlineSystemUpdateAlt />
+                                            <Link to={`/updateItem/${card._id}`}>
+                                                <button
+                                                    className=" text-white btn mt-6  text-lg bg-mainColor ">Update <MdOutlineSystemUpdateAlt />
                                                 </button>
-                                            <button
+                                            </Link>
+                                            <button onClick={() => handleDelete(card._id)}
                                                 className=" text-white btn mt-6  text-lg bg-mainColor ">Delete<MdDelete /></button>
                                         </div>
 

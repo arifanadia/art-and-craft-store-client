@@ -8,6 +8,8 @@ import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import MyList from "../Pages/MyList/MyList";
+import PrivateRoutes from "./PrivateRoutes";
+import UpdateItem from "../Pages/UpdateItem/UpdateItem";
 
 
 
@@ -18,43 +20,48 @@ const router = createBrowserRouter([
         errorElement: <Error></Error>,
         children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
 
             },
             {
-                path:'/add-item',
+                path: '/add-item',
                 element: <AddCraftitem></AddCraftitem>
 
             },
             {
-                path:'/signUp',
-                element: <SignUp></SignUp>
-
-            },
-            {
-                path:'/signIN',
+                path: '/signIn',
                 element: <SignIn></SignIn>
 
             },
-        
             {
-                path:'/all-craft-items',
+                path: '/signUp',
+                element: <SignUp></SignUp>
+
+            },
+
+            {
+                path: '/all-craft-items',
                 element: <AllCraftItems></AllCraftItems>
 
             },
-        
+
             {
-                path:'/craftItems/:id',
-                element: <ViewDetails></ViewDetails>
+                path: '/craftItems/:id',
+                element:<PrivateRoutes> <ViewDetails></ViewDetails></PrivateRoutes>
 
             },
             {
-                path:'/myList',
-                element: <MyList></MyList>
+                path: '/myList',
+                element: <PrivateRoutes><MyList></MyList></PrivateRoutes>
 
             },
-        
+            {
+                path: '/updateItem/:id',
+                element: <UpdateItem></UpdateItem>
+
+            },
+
 
 
         ]

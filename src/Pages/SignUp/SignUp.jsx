@@ -53,7 +53,7 @@ const SignUp = () => {
 
                             Swal.fire({
                                 title: 'success!',
-                                text: 'craft item added successfully',
+                                text: 'user added successfully',
                                 icon: 'success',
                                 confirmButtonText: 'Cool'
                             })
@@ -135,7 +135,7 @@ const SignUp = () => {
                     </div>
 
                     <button className="btn btn-block font-poppins text-black bg-[#D2B48C] mt-10">Sign Up</button>
-                    <p className="text-center  mt-4">Already have an account? <Link className="text-blue-500" to={`/signIn`}>Sign In </Link> </p>
+                    <p className="text-center  mt-4">Already have an account? <Link className="text-blue-500" to={'/signIn'}>Sign In </Link> </p>
                 </form>
                 {
                     error && <p className="text-xl text-center my-5 text-red-800">{error}</p>

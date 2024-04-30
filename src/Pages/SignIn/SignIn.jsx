@@ -1,35 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import imageLog from '../../assets/images/light.webp'
 import { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
+import SocialSignIn from "./SocialSignIn";
+
+// import { toast } from "react-toastify";
 
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { signIn, user } = useContext(AuthContext)
+    const { logIn } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate()
 
 
     const handleSignIn = event => {
+        event.preventDefault();
         const form = new FormData(event.currentTarget);
         const email = form.get("email")
         const password = form.get("password")
-        console.log(password, email);
+        console.log( email,password)
 
-        const matchedEmail = user.email === email
+       
 
-
-
-        signIn(email, password)
+        logIn(email, password)
             .then(result => {
-                console.log(result);
-                if (matchedEmail) {
-                    console.log(result);
-                } else {
-                    toast.error('email are not matched')
-                }
+                console.log(result.user);
+                
+                navigate(location?.state ? location.state : '/')
+              
+            })
+            .catch(error => {
+                console.error(error.message);
+                toast.error('invalid email or password')
             })
 
     }
@@ -46,7 +52,7 @@ const SignIn = () => {
                 </div>
             </div>
             <div className="flex-1 bg-[#F4F3F0] max-w-4xl p-24 my-16 mx-auto shadow-xl" >
-                <h2 className="text-center text-3xl font-bold leading-relaxed ">Sign Up Now !!! </h2>
+                <h2 className="text-center text-3xl font-bold leading-relaxed ">Sign In Now !!! </h2>
                 <form onSubmit={handleSignIn} className='space-y-4'>
                     <div className="form-control ">
                         <label className="label">
@@ -71,8 +77,10 @@ const SignIn = () => {
                     </div>
 
 
-                    <button className="btn btn-block font-poppins text-black bg-[#D2B48C] mt-10">Sign Up</button>
-                    <p className="text-center  mt-4">Already have an account? <Link className="text-blue-500" to={`/signUp`}>Sign In </Link> </p>
+                    <button className="btn btn-block font-poppins text-black bg-[#D2B48C] mt-10">Sign In</button>
+                    <p className="text-center  mt-4">Dont have an Account? <Link className="text-blue-500" to={'/signUp'}>Sign Up </Link> </p>
+                    <p className="my-5 text-center">------------ or Connect with ------------</p>
+                    <SocialSignIn></SocialSignIn>
                 </form>
             </div>
         </div>

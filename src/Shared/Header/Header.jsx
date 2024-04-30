@@ -5,12 +5,16 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
     const [theme, setTheme] = useState('light');
-    const { user,signOut } = useContext(AuthContext);
+    const { user,logOut } = useContext(AuthContext);
 
     const handleSignOut = () => {
-        signOut()
-        .then()
-        .catch()
+        logOut()
+        .then(result => {
+            console.log(result);
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }
 
     useEffect(() => {
@@ -46,7 +50,7 @@ const Header = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost text-white  lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1]  p-2 shadow bg-base-100 rounded-box w-52 text-black dark:text-white">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1]  p-2 shadow bg-base-100 rounded-box w-52 ">
                             {navLinks}
                         </ul>
                     </div>
@@ -102,8 +106,12 @@ const Header = () => {
                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li>
                         <a className="justify-between">
-                            Profile
-                            <span className="badge">New</span>
+                            {user?.name || "user name not found"}
+                        </a>
+                    </li>
+                    <li>
+                        <a className="justify-between">
+                            {user?.email || "user email not found"}
                         </a>
                     </li>
                     <li><a>Settings</a></li>
