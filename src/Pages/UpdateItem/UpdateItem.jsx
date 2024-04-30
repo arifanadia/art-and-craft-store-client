@@ -57,7 +57,7 @@ const UpdateItem = () => {
             })
     }
 
-    //     axios.put(`http://localhost:5000/updateItem/${id}`, updateItem)
+    //     axios.put(`https://art-and-craft-store-5vy1glsyo-arifanadias-projects.vercel.app/updateItem/${id}`, updateItem)
     //         .then(data => {
     //             form.reset()
     //             if (data.data.insertedId) {

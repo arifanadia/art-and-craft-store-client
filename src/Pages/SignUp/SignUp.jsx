@@ -47,7 +47,7 @@ const SignUp = () => {
                 console.log(result.user);
 
                 const user = { name, email, photo, password, check }
-                axios.post('http://localhost:5000/users', user)
+                axios.post('https://art-and-craft-store-5vy1glsyo-arifanadias-projects.vercel.app/users', user)
                     .then(data => {
                         if (data.data.insertedId) {
 

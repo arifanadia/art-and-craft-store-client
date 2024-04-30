@@ -73,9 +73,7 @@ const Item = ({ item }) => {
                     <Typography color="gray">
                         Price : ${price}  ( {priceType} )
                     </Typography>
-                    <Typography color="gray">
-
-                    </Typography>
+                   
                 </div>
                 <Typography color="gray">
                     {stock}
