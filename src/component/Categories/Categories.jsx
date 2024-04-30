@@ -16,7 +16,7 @@ const Categories = () => {
     console.log(categories);
 
     return (
-        <div>
+        <div className="mt-14">
             <div className="text-center font-workSans">
                 <h4 className="text-2xl text-mainColor">Shop By Category</h4>
                 <h1 className="text-4xl my-4">Designed by artists, made <br /> by us, just for you.</h1>

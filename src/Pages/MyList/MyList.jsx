@@ -6,11 +6,14 @@ import { MdDelete } from "react-icons/md";
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+// import Select from 'react-select'
 
 const MyList = () => {
 
     const { user } = useContext(AuthContext);
     const [item, setItem] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState(null)
+
 
     useEffect(() => {
         axios.get(`http://localhost:5000/myList/${user?.email}`)
@@ -20,34 +23,60 @@ const MyList = () => {
             })
     }, [user])
 
-    const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
+    const handleDelete = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
 
+                fetch(`http://localhost:5000/delete/${id}`, {
+                    method: 'DELETE'
 
-                if (data.modifiedCount) {
-                    Swal.fire({
-                        title: 'success!',
-                        text: 'craft item updated successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Coffee has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = item.filter(i => i._id !== id);
+                            setItem(remaining)
+
+                        }
                     })
+            }
+        });
 
-                }
-            })
+
     }
+    const filterItemsByCategory = () => {
+        if (!selectedCategory) {
+            return item;
+        }
+        return item.filter(item => item.subCategory === selectedCategory);
+    };
 
-    console.log(item);
 
     return (
         <div className="lg:grid lg:grid-cols-3 gap-6 my-12 max-w-7xl mx-auto">
+             <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+                    <option value="">All Categories</option>
+                    <option value={'Storage Solution'}>Storage Solution</option>
+                    <option value={"wall decor"}>Category 2</option>
+             
+                </select>
             <div className="col-span-2 space-y-6">
                 {
-                    item?.map(card => (
+                    filterItemsByCategory().map(card => (
                         <div key={card._id}>
                             <div className="p-6 rounded-xl  lg:flex gap-8 bg-base-100 shadow-xl">
                                 <figure className="flex-1"><img className="mx-auto  rounded-xl md:rounded-l-xl" src={card.image} alt="Movie" /></figure>
