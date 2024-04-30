@@ -10,6 +10,7 @@ import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import MyList from "../Pages/MyList/MyList";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateItem from "../Pages/UpdateItem/UpdateItem";
+import CategoryItems from "../Pages/CategoryItems/CategoryItems";
 
 
 
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
             {
                 path: '/updateItem/:id',
                 element: <UpdateItem></UpdateItem>
+
+            },
+            {
+                path: '/categoryItems',
+                element: <CategoryItems></CategoryItems>
 
             },
 
