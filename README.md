@@ -1,6 +1,6 @@
 # art and craft store
 
-Welcome to the Textile Arts Store website, your ultimate destination for exploring and showcasing beautiful textile crafts!
+Welcome to the art and craft store website, your ultimate destination for exploring and showcasing beautiful textile crafts!
 
 ## Live Site
 
@@ -12,8 +12,7 @@ Visit the live site: https://art-and-craft-store-2ac70.web.app
   - Navbar with logo, website name, and user authentication (login/register)
   - Banner/Slider section showcasing thematic images
   - Craft Items Section displaying various textile arts with "View Details" buttons
-  - Art & Craft Categories Section featuring subcategories of Textile Arts
-  - Extra Sections for additional content
+  - Art & Craft Categories Section featuring subcategories of art and craft store
   - Footer with website information and social media links
 
 - **Add Craft Item Page**:
