@@ -79,6 +79,10 @@ To run this project locally, follow these steps:
     ```bash
     npm start
     ```
+5. **Server-side git-repo**
+    ```bash
+    git clone https://github.com/arifanadia/exploresavvy-tourist-guide-server.git
+    ```
 
 ## Contact
 
