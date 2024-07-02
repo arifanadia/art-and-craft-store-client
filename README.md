@@ -81,7 +81,7 @@ To run this project locally, follow these steps:
     ```
 5. **Server-side git-repo**
     ```bash
-    git clone https://github.com/arifanadia/exploresavvy-tourist-guide-server.git
+    git clone https://github.com/arifanadia/art-and-craft-store-server.git
     ```
 
 ## Contact
