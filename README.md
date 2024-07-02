@@ -1,12 +1,10 @@
-https://art-and-craft-store-2ac70.web.app
-
 # art and craft store
 
 Welcome to the Textile Arts Store website, your ultimate destination for exploring and showcasing beautiful textile crafts!
 
 ## Live Site
 
-Visit the live site: [Textile Arts Store](https://your-live-site-url.com)
+Visit the live site: https://art-and-craft-store-2ac70.web.app
 
 ## Features
 
